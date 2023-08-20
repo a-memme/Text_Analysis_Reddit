@@ -1,5 +1,4 @@
-@misc
-{grootendorst2020keybert,
+@misc{grootendorst2020keybert,
   author       = {Maarten Grootendorst},
   title        = {KeyBERT: Minimal keyword extraction with BERT.},
   year         = 2020,
