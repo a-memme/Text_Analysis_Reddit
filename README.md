@@ -86,10 +86,14 @@ def get_posts(subreddit_name):
 ## Results 
 ### Keyword Extraction
 - Both techniques appear to output very similar results, often seeing a greater inclusion of words in the tokenizing/lemmatizing approach:
-    - Tokenization/Lemmatization
-    ![image](https://github.com/a-memme/Text_Analysis_Reddit/assets/79600550/9bb8cd2f-331b-46a2-b70c-ff6c4ebc3481)
-    - KeyBERT
-    ![image](https://github.com/a-memme/Text_Analysis_Reddit/assets/79600550/896d048b-4a83-41e8-bba1-68b7c36f22ca)
+    - **Tokenization/Lemmatization**
+    
+        ![image](https://github.com/a-memme/Text_Analysis_Reddit/assets/79600550/9bb8cd2f-331b-46a2-b70c-ff6c4ebc3481)
+    
+    - **KeyBERT**
+
+        ![image](https://github.com/a-memme/Text_Analysis_Reddit/assets/79600550/896d048b-4a83-41e8-bba1-68b7c36f22ca)
+
 - Because 
 
 
