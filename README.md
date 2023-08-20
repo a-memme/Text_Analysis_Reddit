@@ -11,7 +11,7 @@ The current analysis leverages text analysis - particularily keyword extraction 
 - Access Reddit data at scale via the Python Reddit API Wrapper library (PRAW).
 - Analyze reddit post titles via 2 competing methods and assess the ouputs of each:
     - Standard lemmatization + tokenization
-    - KeyBERT algorithm (see reference below)
+    - KeyBERT keyword extractio model (see reference below)
 - Calculate average metric scores of keywords outputted by the model
 - Calculate a correlation matrix of the keywords to determine a richer understanding of top performing keywords and topics
 
@@ -70,9 +70,28 @@ def get_posts(subreddit_name):
   
   return aita_df
 ```
+### Tokenization vs KeyBERT
+- Tokenization + Lemmatization
+    - Reddit post titles are broken down via tokenization, lemmatization, and filtered further by removing both stopwords and non-alpha characters, with a limit of 3 letters per word (See lines ... for code)
+    - Lemmatization is preferred over stemming here as we're looking for the dictionary-based morphological root of the words of interest rather than the base root as the dictionary-based representation is usually easier for general interpretation.
+ 
+- KeyBERT
+    - The KeyBERT technique is an easy to use framework, leveraging BERT embeddings - i.e a bi-directional transformer model utilizing semantic similarity for keywords and phrases - to extract said keywords or phrases from a piece of text.
+    - Here we specify our extraction technique basedon a number of factors:
+        -  choosing an n-gram range of 1,1 (i.e singular words instead of bi or tri-grams),
+        -  removing stopwords (similar to above)
+        -  applying Maximal Marginal Relevance, using cosine similarity to first find keywords with maximum relevance to the entire text, and second, iteratively choose new cadidates that are both similar to the text and not similar to the rest of the chosen keywords
+        -  experimenting with ranges of keywords to include - here we've opened to 8 to basically leave open to an all keyword inclusion.
 
 ## Results 
-### Tokenization vs KeyBERT
+### Keyword Extraction
+- Both techniques appear to output very similar results, often seeing a greater inclusion of words in the tokenizing/lemmatizing approach:
+    - Tokenization/Lemmatization
+    ![image](https://github.com/a-memme/Text_Analysis_Reddit/assets/79600550/9bb8cd2f-331b-46a2-b70c-ff6c4ebc3481)
+    - KeyBERT
+    ![image](https://github.com/a-memme/Text_Analysis_Reddit/assets/79600550/896d048b-4a83-41e8-bba1-68b7c36f22ca)
+- Because 
+
 
 
 
