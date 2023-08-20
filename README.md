@@ -17,7 +17,7 @@ The current analysis leverages text analysis - particularily keyword extraction 
 
 ### Data Extraction 
 *See ipynb page for details*
-- Using the PRAW library, API connection can be configured quite easily (see below).
+- PRAW library
 - Using the top() function with parameters, the top 1000 posts within the year are accessed, looping through each post to get metrics of interest - see code below:
 ```
 #Function for retrieving top posts
