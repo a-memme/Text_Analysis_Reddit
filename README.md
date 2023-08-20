@@ -11,7 +11,7 @@ The current analysis leverages text analysis - particularily keyword extraction 
 - Access Reddit data at scale via the Python Reddit API Wrapper library (PRAW).
 - Analyze reddit post titles via 2 competing methods and assess the ouputs of each:
     - Standard lemmatization + tokenization
-    - KeyBERT keyword extractio model (see reference below)
+    - KeyBERT keyword extractio model (see reference for more details).
 - Calculate average metric scores of keywords outputted by the model
 - Calculate a correlation matrix of the keywords to determine a richer understanding of top performing keywords and topics
 
@@ -142,12 +142,7 @@ The current analysis looks to provide value to understanding online media conten
 
 ## References
 - KeyBERT:
-    - @misc{grootendorst2020keybert,
-  author       = {Maarten Grootendorst},
-  title        = {KeyBERT: Minimal keyword extraction with BERT.},
-  year         = 2020,
-  publisher    = {Zenodo},
-  version      = {v0.3.0},
-  doi          = {10.5281/zenodo.4461265},
-  url          = {https://doi.org/10.5281/zenodo.4461265}
-}
+    - https://github.com/MaartenGr/KeyBERT
+    - https://towardsdatascience.com/keyword-extraction-with-bert-724efca412ea
+- PRAW library:
+    - https://github.com/praw-dev/praw
