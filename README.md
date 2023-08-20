@@ -116,4 +116,21 @@ popular_cats_set.difference_update(['want', 'let', 'ask', 'get', 'make', 'tell',
 ![image](https://github.com/a-memme/Text_Analysis_Reddit/assets/79600550/867b796c-0c5f-46a9-9771-e1ae1ee46a39)
 
 ### Keyword Correlation 
+- By transforming the popular keyword dataframe into a vector matrix, we are able to calculate/visualize the correlations between them, enriching our analysis of high performing and popular keywords/topics - see below:
 ![image](https://github.com/a-memme/Text_Analysis_Reddit/assets/79600550/77fff600-f1af-4f0a-b71a-ef60ffaa06ec)
+
+## Discussion 
+### Individual Keyword Performance 
+- By assessing words that appear in multiple top lists, we can easily infer high-level topics (or at the least, keywords) that perform well on the subreddit. Overall, we can see that most words are relevant to friends & family drama. More specifically, some topics to note may be:
+    - dinner (top score & comments)
+    - weddings (top score, upvote and popularily used)
+    - paying (in all top lists & popularily used)
+    - etc...
+
+### Keyword Relevance 
+- Although keyword performance may seem broad and simple, by assessing the correlations between said words (i.e how often do they appear/don't appear together), we can enrichen our understandings of said topics. For instance:
+    - Example 1: Weddings
+        - see strong correlations with gifts, brothers/sisters, and strongest correlation to inviting/invitations (lemmatized word = 'invite')
+        - here we can infer that a lot of the popular/high performing wedding content may specifically be dealing with drama around a sibling's wedding, gifts at a wedding or drama around invites/types of invitations etc.
+        - one step further can look at multicolinearity - that is, do we see relationships between gifts and siblings? (no - this would indicate that high performance in those categories are likely seperate from each other, i.e weddings + siblings OR weddings + gifts).
+    - Example 2: Paying  
