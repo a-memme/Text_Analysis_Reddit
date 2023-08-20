@@ -115,3 +115,5 @@ popular_cats_set.difference_update(['want', 'let', 'ask', 'get', 'make', 'tell',
 #### Comments
 ![image](https://github.com/a-memme/Text_Analysis_Reddit/assets/79600550/867b796c-0c5f-46a9-9771-e1ae1ee46a39)
 
+### Keyword Correlation 
+![image](https://github.com/a-memme/Text_Analysis_Reddit/assets/79600550/77fff600-f1af-4f0a-b71a-ef60ffaa06ec)
