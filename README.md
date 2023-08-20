@@ -1,5 +1,5 @@
 # Keyword Extraction and Topic Analysis - Reddit
-*Analyzing top performing keywords and topics of a popular subreddit through use of a variety of NLP techniques.*
+*Analyzing top performing keywords and topics from a popular subreddit thread, utilizing a variety of NLP techniques.*
 
 ## Purpose
 In the online media industry, understanding the best performing content lanes under whichever platform/medium channel of interest is valuable knowledge when considering content creation and redistribution. Furthermore, continuously keeping one's finger on the pulse as to how topics of interest may change at any given time is critical when looking to maintain an agile, sustainable, and effective content strategy. 
@@ -134,3 +134,7 @@ popular_cats_set.difference_update(['want', 'let', 'ask', 'get', 'make', 'tell',
         - here we can infer that a lot of the popular/high performing wedding content may specifically be dealing with drama around a sibling's wedding, gifts at a wedding or drama around invites/types of invitations etc.
         - one step further can look at multicolinearity - that is, do we see relationships between gifts and siblings? (no - this would indicate that high performance in those categories are likely seperate from each other, i.e weddings + siblings OR weddings + gifts).
     - Example 2: Paying  
+        - correlations with vacations, refusals, boyfriends and family.
+        - refusal provides very powerful context to the popularity of paying - i.e high performing content surrounding the refusal to pay for things - and unlike the example above, we can see that boyfriends are both strongly correlated to paying AND refusals, providing an even deeper context of a high performing content lane.
+
+## Conclusion
