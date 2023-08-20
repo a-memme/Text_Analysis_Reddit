@@ -71,11 +71,11 @@ def get_posts(subreddit_name):
   return aita_df
 ```
 ### Tokenization vs KeyBERT
-- Tokenization + Lemmatization
-    - Reddit post titles are broken down via tokenization, lemmatization, and filtered further by removing both stopwords and non-alpha characters, with a limit of 3 letters per word (See lines ... for code)
+- **Tokenization + Lemmatization**
+    - Subreddit post titles are broken down via tokenization, lemmatization, and filtered further by removing both stopwords and non-alpha characters, with a limit of 3 letters per word (See lines ... for code)
     - Lemmatization is preferred over stemming here as we're looking for the dictionary-based morphological root of the words of interest rather than the base root - the dictionary-based representation is typically easier for general interpretation and more suitable for this analytical case.
  
-- KeyBERT
+- **KeyBERT**
     - The KeyBERT technique is an easy to use framework, leveraging BERT embeddings - i.e a bi-directional transformer model utilizing semantic similarity for keywords and phrases - to extract said keywords or phrases from pieces of text.
     - Here we specify our extraction technique based on a number of factors:
         -  N-gram range of 1,1 (i.e singular words instead of bi or tri-grams).
@@ -87,7 +87,8 @@ def get_posts(subreddit_name):
 ## Results 
 ### Keyword Extraction
 - Both techniques appear to output very similar results, often seeing a greater inclusion of words in the tokenizing/lemmatizing approach
-    - For this analysis, the tokenization/lemmatization approach is chosen as it appears to cast a slightly "wider net" in capturing keywords while still providing us with the confidence that irrelevant keywords are not diluting the mix in comparison to the KeyBERT approach:
+    - For this analysis, the tokenization/lemmatization approach is chosen as it appears to cast a slightly "wider net" in capturing keywords while still providing us with the confidence that irrelevant keywords are not diluting the mix in comparison to the KeyBERT approach
+    - Although KeyBERT provides a very sensible approach to typical keyword extraction, its level of sophistication is simply not needed in our specific use case - see below:
     - **Tokenization/Lemmatization**
     
         ![image](https://github.com/a-memme/Text_Analysis_Reddit/assets/79600550/9bb8cd2f-331b-46a2-b70c-ff6c4ebc3481)
@@ -141,9 +142,7 @@ popular_cats_set.difference_update(['want', 'let', 'ask', 'get', 'make', 'tell',
         - Refusal provides very powerful context to the popularity of paying - i.e high performing content surrounding the refusal to pay for things - and unlike the example above, we can see that boyfriends are both strongly correlated to paying AND refusals, providing an even deeper context of a high performing content lane that includes stories of boyfriends refusing to pay for things.
 
 ## Conclusion
-The current analysis looks to provide value to understanding online media content performance via popuarily used NLP techniques, implemented in a simple yet powerful approach. Furthermore, domain knowledge becomes extremely important in said analysis to 
-
-used to make appropriate decision regarding which NLP techniques to use and how, as well as
+The current analysis looks to provide value to understanding online media content performance via popuarily used NLP techniques, implemented in a simple yet powerful approach. Furthermore, domain knowledge - as it often does - becomes extremely important when considering model & parameter selection, as well as final analysis and interpretation of the results. Please reach out for any comments, questions or suggestions!
 
 ## References
 - KeyBERT:
