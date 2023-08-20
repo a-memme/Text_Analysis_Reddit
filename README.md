@@ -138,3 +138,16 @@ popular_cats_set.difference_update(['want', 'let', 'ask', 'get', 'make', 'tell',
         - refusal provides very powerful context to the popularity of paying - i.e high performing content surrounding the refusal to pay for things - and unlike the example above, we can see that boyfriends are both strongly correlated to paying AND refusals, providing an even deeper context of a high performing content lane.
 
 ## Conclusion
+The current analysis looks to provide value to understanding online media content performance via popuarily used NLP techniques, implemented in a simple yet powerful approach. Furthermore, domain knowledge is used to make appropriate decision regarding which NLP techniques to use and how, as well as
+
+## References
+- KeyBERT:
+    - @misc{grootendorst2020keybert,
+  author       = {Maarten Grootendorst},
+  title        = {KeyBERT: Minimal keyword extraction with BERT.},
+  year         = 2020,
+  publisher    = {Zenodo},
+  version      = {v0.3.0},
+  doi          = {10.5281/zenodo.4461265},
+  url          = {https://doi.org/10.5281/zenodo.4461265}
+}
