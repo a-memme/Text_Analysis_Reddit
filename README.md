@@ -85,7 +85,7 @@ def get_posts(subreddit_name):
 
 ## Results 
 ### Keyword Extraction
-- Both techniques appear to output very similar results, often seeing a greater inclusion of words in the tokenizing/lemmatizing approach:
+- Both techniques appear to output very similar results, often seeing a greater inclusion of words in the tokenizing/lemmatizing approach, and thus, the first approach is used to cast a "wider net" to the analysis while still confident that irrelevant keywords are diluting the mix in comparison to the KeyBERT approach:
     - **Tokenization/Lemmatization**
     
         ![image](https://github.com/a-memme/Text_Analysis_Reddit/assets/79600550/9bb8cd2f-331b-46a2-b70c-ff6c4ebc3481)
@@ -94,9 +94,24 @@ def get_posts(subreddit_name):
 
         ![image](https://github.com/a-memme/Text_Analysis_Reddit/assets/79600550/896d048b-4a83-41e8-bba1-68b7c36f22ca)
 
-- Because 
+- Because determining stopwords is somewhat of a subjective approach, we can identify frequently appearing stopwords that were missed in the first step, and omit them from analysis:
+```
+#Store keywords and popularity from token set in a df - token set used to cast a wider net in this case (more flexibility)
+popular_words = keyword_freq('tokens')
 
+#Only keep keywords that appear 20 more times - manually remove stopwords that weren't caught by the nltk stopwords library
+popular_cats_set = set(popular_words[(popular_words.counts>=20)]['flat_categories'])
+popular_cats_set.difference_update(['want', 'let', 'ask', 'get', 'make', 'tell', 'take', 'told', 'say'])
+```
 
+### Keyword Performance 
+- Top keywords can be assessed by score, number of comments, upvote ratio, and frequency - see below:
+#### Score
+![image](https://github.com/a-memme/Text_Analysis_Reddit/assets/79600550/137619b6-50f2-4dfb-b33e-78d3dc9a4383)
 
+#### Upvote Ratio
+![image](https://github.com/a-memme/Text_Analysis_Reddit/assets/79600550/137a83a9-ff9c-4c0e-9c5a-5d72893f09d3)
 
-content lanes and topics that are performing well at any given moment is crucial when looking to produce and redistribute content, as well as 
+#### Comments
+![image](https://github.com/a-memme/Text_Analysis_Reddit/assets/79600550/867b796c-0c5f-46a9-9771-e1ae1ee46a39)
+
