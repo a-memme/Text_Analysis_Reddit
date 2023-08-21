@@ -72,7 +72,7 @@ def get_posts(subreddit_name):
 ```
 ### Tokenization vs KeyBERT
 - **Tokenization + Lemmatization**
-    - Subreddit post titles are broken down via tokenization, lemmatization, and filtered further by removing both stopwords and non-alpha characters, with a limit of 3 letters per word (See lines ... for code)
+    - Subreddit post titles are broken down via tokenization, lemmatization, and filtered further by removing both stopwords and non-alpha characters, with a limit of 3 letters per word (See Lemmatizing and Tokenizing section in [Reddit_Topic_Analysis.ipynb](https://github.com/a-memme/Text_Analysis_Reddit/blob/main/Reddit_Topic_Analysis.ipynb) for code details)
     - Lemmatization is preferred over stemming here as we're looking for the dictionary-based morphological root of the words of interest rather than the base root - the dictionary-based representation is typically easier for general interpretation and more suitable for this analytical case.
  
 - **KeyBERT**
