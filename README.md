@@ -16,7 +16,7 @@ The current analysis leverages text analysis - particularily keyword extraction 
 - Calculate a correlation matrix of the keywords to determine a richer understanding of top performing keywords and topics
 
 ### Data Extraction 
-*See ipynb page for details*
+*See [Reddit_Topic_Analysis.ipynb](https://github.com/a-memme/Text_Analysis_Reddit/blob/main/Reddit_Topic_Analysis.ipynb) for details*
 - PRAW library
 - Using the top() function with parameters, the top 1000 posts within the year are accessed, looping through each post to get metrics of interest - see code below:
 ```
