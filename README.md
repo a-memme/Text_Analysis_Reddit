@@ -72,9 +72,36 @@ def get_posts(subreddit_name):
 ```
 ### Tokenization vs KeyBERT
 - **Tokenization + Lemmatization**
-    - Subreddit post titles are broken down via tokenization, lemmatization, and filtered further by removing both stopwords and non-alpha characters, with a limit of 3 letters per word (See Lemmatizing and Tokenizing section in [Reddit_Topic_Analysis.ipynb](https://github.com/a-memme/Text_Analysis_Reddit/blob/main/Reddit_Topic_Analysis.ipynb) for code details)
+    - Subreddit post titles are broken down via tokenization, lemmatization, and filtered further by removing both stopwords and non-alpha characters, with a limit of 3 letters per word.
     - Lemmatization is preferred over stemming here as we're looking for the dictionary-based morphological root of the words of interest rather than the base root - the dictionary-based representation is typically easier for general interpretation and more suitable for this analytical case.
- 
+```
+# Lemmatizing/Tokenizing Functions
+#Configure
+def get_wordnet_pos(word):
+# Map tag to the first character lemmatize() accepts
+    tag = nltk.pos_tag([word])[0][1][0].upper()
+    tag_dict = {"J": wordnet.ADJ,
+                "N": wordnet.NOUN,
+                "V": wordnet.VERB,
+                "R": wordnet.ADV}
+
+    return tag_dict.get(tag, wordnet.NOUN)
+
+#Tokenizing titles - only keep tokens with >2 character length
+def tokens(tag):
+    tag = remove_stopwords(tag) # remove stopwords with Gensim
+
+    lemmatizer = WordNetLemmatizer()
+    tokenized = [lemmatizer.lemmatize(w, get_wordnet_pos(w)) for w in nltk.word_tokenize(tag)]
+
+    # remove left over stop words with nltk
+    tokenized = [token for token in tokenized if token not in stopwords.words("english")]
+
+    # remove non-alpha characters and keep the words of length >2 only
+    tokenized = [token for token in tokenized if token.isalpha() and len(token)>2]
+
+    return tokenized
+ ```
 - **KeyBERT**
     - The KeyBERT technique is an easy to use framework, leveraging BERT embeddings - i.e a bi-directional transformer model utilizing semantic similarity for keywords and phrases - to extract said keywords or phrases from pieces of text.
     - Here we specify our extraction technique based on a number of factors:
@@ -83,6 +110,13 @@ def get_posts(subreddit_name):
         -  Maximal Marginal Relevance
             -  Leveraging cosine similarity to first, find keywords with maximum relevance to the entire text and second, to iteratively choose new cadidates that are both similar to the text and not similar to the rest of the chosen keywords
         -  Experimenting with ranges of keywords to include - a large value is used to include all keywords captured.
+```
+#Create lists within a list of keywords (for each title) and append
+bert_list_cleaned = []
+for name in keyword_df['lower']:
+  bert_keys = kb.extract_keywords(name, keyphrase_ngram_range=(1, 1), stop_words='english', use_mmr=True, diversity=0.7)[:8]
+  bert_list_cleaned.append(bert_keys)
+```   
 
 ## Results 
 ### Keyword Extraction
