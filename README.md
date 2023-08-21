@@ -111,7 +111,7 @@ def tokens(tag):
             -  Leveraging cosine similarity to first, find keywords with maximum relevance to the entire text and second, to iteratively choose new cadidates that are both similar to the text and not similar to the rest of the chosen keywords
         -  Experimenting with ranges of keywords to include - a large value is used to include all keywords captured.
 ```
-#Create lists within a list of keywords (for each title) and append
+kb = KeyBERT()
 bert_list_cleaned = []
 for name in keyword_df['lower']:
   bert_keys = kb.extract_keywords(name, keyphrase_ngram_range=(1, 1), stop_words='english', use_mmr=True, diversity=0.7)[:8]
